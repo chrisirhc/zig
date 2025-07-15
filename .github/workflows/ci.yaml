@@ -79,7 +79,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: zig
-          path: /Users/runner/work/zig/zig/stage3/bin/zig
+          path: /Users/runner/work/zig/zig/build/stage3/bin/zig
           retention-days: 7
   aarch64-macos-debug:
     runs-on: [self-hosted, macOS, aarch64]
@@ -103,7 +103,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: zig
-          path: /Users/runner/work/zig/zig/stage3-release/bin/zig
+          path: /Users/runner/work/zig/zig/build-release/stage3-release/bin/zig
           retention-days: 7        
   x86_64-windows-debug:
     timeout-minutes: 420
