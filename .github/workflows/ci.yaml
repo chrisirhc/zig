@@ -82,7 +82,7 @@ jobs:
           path: /Users/runner/work/zig/zig/build/stage3/bin/zig
           retention-days: 7
   aarch64-macos-debug:
-    runs-on: [self-hosted, macOS, aarch64]
+    runs-on: "macos-14"
     env:
       ARCH: "aarch64"
     steps:
@@ -90,6 +90,12 @@ jobs:
         uses: actions/checkout@v4
       - name: Build and Test
         run: ci/aarch64-macos-debug.sh
+      - name: Upload Artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: zig-aarch64-macos-debug
+          path: /Users/runner/work/zig/zig/build-debug/stage3-debug/bin/zig
+          retention-days: 7
   aarch64-macos-release:
     runs-on: "macos-14"
     env:
@@ -102,9 +108,9 @@ jobs:
       - name: Upload Artifacts
         uses: actions/upload-artifact@v4
         with:
-          name: zig
+          name: zig-aarch64-macos-release
           path: /Users/runner/work/zig/zig/build-release/stage3-release/bin/zig
-          retention-days: 7        
+          retention-days: 7
   x86_64-windows-debug:
     timeout-minutes: 420
     runs-on: [self-hosted, Windows, x86_64]
