@@ -39,7 +39,7 @@ PATH="$HOME/local/bin:$PATH" cmake .. \
   -DZIG_NO_LIB=ON \
   -GNinja
 
-$HOME/local/bin/ninja install
+ninja install
 
 stage3-debug/bin/zig build test docs \
   --zig-lib-dir "$PWD/../lib" \
